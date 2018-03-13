@@ -45,11 +45,11 @@ $mysqli->query("CREATE TABLE IF NOT EXISTS `settings` (
 ");
 
 $mysqli->query("INSERT INTO `settings` (`id`, `name`, `value`) VALUES
-(1, 'Name', 'CoinBox Script Demo'),
-(2, 'Description', 'Free Bitcoin by CoinBox'),
-(3, 'Url', 'http://coinbox.club/'),
+(1, 'Name', 'microzeny faucet sample script'),
+(2, 'Description', 'Free BitZeny by microzeny'),
+(3, 'Url', 'http://example.com/'),
 (4, 'Theme', 'other'),
-(5, 'Currency', 'BTC'),
+(5, 'Currency', 'ZNY'),
 (6, 'FaucetHub Api', ''),
 (7, 'Timer', '60'),
 (8, 'Reward', '100'),
@@ -58,7 +58,7 @@ $mysqli->query("INSERT INTO `settings` (`id`, `name`, `value`) VALUES
 (11, 'Short Link Reward', '10'),
 (12, 'Force Short Link', 'off'),
 (13, 'Captcha System', 'recaptcha'),
-(14, 'Recaptcha Public Key', '-x88ZWeT6m8XKZq-b'),
+(14, 'Recaptcha Public Key', ''),
 (15, 'Recaptcha Secret Key', ''),
 (16, 'Bitcaptcha Id', ''),
 (17, 'Bitcaptcha Key', ''),

@@ -75,7 +75,7 @@ function his($faucethub_api) {
 		'api_key' => $faucethub_api,
 		'count' => '10'
 	);
-	$url = 'https://faucethub.io/api/v1/payouts';
+	$url = 'https://faucet.microzeny.com/api/v1/payouts';
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($ch, CURLOPT_POST, count($param));

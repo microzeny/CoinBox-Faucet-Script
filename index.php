@@ -35,12 +35,12 @@ if (isset($_POST['address']) and isset($_POST['token'])) {
 			if (check_blocked_ip($ip) == 'blocked') {
 				$alert = "<center><img style='max-width: 200px;' src='template/img/bots.png'><br><div class='alert alert-warning'>Your Ip Is Blocked. Please Contact Admin.</div></center>";
 			} elseif (check_blocked_address($address) == 'blocked') {
-				$alert = "<center><img style='max-width: 200px;' src='template/img/bots.png'><br><div class='alert alert-warning'>Your Address Is Blocked. Please Contact Admin.</div></center>";
+				$alert = "<center><img style='max-width: 200px;' src='template/img/bots.png'><br><div class='alert alert-warning'>Your Account Is Blocked. Please Contact Admin.</div></center>";
 			} elseif (!empty(get_info(29)) and iphub(get_info(29)) == 'bad') {
 				$alert = "<center><img style='max-width: 200px;' src='template/img/bots.png'><br><div class='alert alert-warning'>Your Ip Is Blocked By IpHub</div></center>";
 				$mysqli->query("INSERT INTO ip_blocked (address) VALUES ('$ip')");
 			} elseif (checkaddress($address) !== 'ok') {
-				$alert = "<center><img style='max-width: 200px;' src='template/img/bots.png'><br><div class='alert alert-warning'>Your Address is not ready to claim!</div><br><div id='CountDownTimer' data-timer='" . checkaddress($address) . "' style='width: 100%;'></div></center>";
+				$alert = "<center><img style='max-width: 200px;' src='template/img/bots.png'><br><div class='alert alert-warning'>Your Account is not ready to claim!</div><br><div id='CountDownTimer' data-timer='" . checkaddress($address) . "' style='width: 100%;'></div></center>";
 			} elseif (checkip($ip) !== 'ok') {
 				$alert = "<center><img style='max-width: 200px;' src='template/img/bots.png'><br><div class='alert alert-warning'>Your Ip Address is not ready to claim!</div><br><div id='CountDownTimer' data-timer='" . checkip($ip) . "' style='width: 100%;'></div></center>";
 			} else {
@@ -324,8 +324,6 @@ $_SESSION['token'] = get_token(70);
 					<code>Ref link: <?=$faucet['url']?>?r=Your_bitcoin_address</code>
 				</form>
 				<?php } else { $wait= 1; echo "<div class='alert alert-info'>You have to wait</div><br><div id='CountDownTimer' data-timer='" . checkip($ip) . "' style='width: 100%;'></div>"; } ?> 
-				<center><a href='http://coinbox.club' target='_blank'><img src='http://coinbox.club/gif.gif'></a></center>
-				<!---You can keep this banner to support us, thanks !-->
 			</div>
 			<div class="col-sm-3 text-center" style="margin-top: 20px;">
 				<?=$ad['right']?>
@@ -335,7 +333,8 @@ $_SESSION['token'] = get_token(70);
 	<br>
 	<footer class="text-center">
 		<!---Please do not remove the link to support us, thanks!-->
-		<p>&copy; 2017 <a href='<?=$faucet['url']?>'><?=$faucet['name']?></a>, <strong id='copyright'>Powered by <a href='http://coinbox.club' class="cbc">CoinBox Script</a></strong></p>
+		<p>&copy; 2018 <a href='<?=$faucet['url']?>'><?=$faucet['name']?></a>, <strong id='copyright'>Powered by <a href='https://faucet.microzeny.com/' class="cbc">microzeny faucet</a></strong></p>
+		<p>Original Script <strong id='copyright'>Powered by <a href='http://coinbox.club' class="cbc">CoinBox Script</a></strong></p>
 	</footer> 
 	<script src="template/js/jquery-3.2.1.min.js"></script>
 	<script src="template/js/popper.min.js"></script>
