@@ -1,29 +1,33 @@
-# CoinBox Faucet Script (TOTALLY FREE)
-- Free Faucet Script supports short link, multi currency, responsive design,.../
-- Need helps ? Go to our forum: http://coinbox.club/threads/free-coinbox-faucet-script.5
+# Faucet Script for faucet.microzeny.com
 
+- オリジナル https://github.com/tungaqhd/CoinBox-Faucet-Script
 
-# Mininum Requirements
+# 動作環境
 
 - PHP >= 5.6 (tested on 5.6)
 
 - MySQLI
 
-# Installation Instruction
+# インストール方法
 
-1. Download the zip file
+1. zip fileをダウンロードします
 
-2. Upload to your Server
+2. サーバーにアップロードします
 
-3. Unzip the file
+3. zipを解凍します
 
-4. Open libs/config.php and enter your database information, admin user name and password (default is admin and admin)
+4. libs/config.php を開き、データベースの情報、管理者アカウント名、パスワードを設定します(デフォルトはadmin/adminになっています）
 
-5. Open http://yourfaucet.com/install.php 
+5. http://yourfaucet.com/install.php を開きます
 
-6. Open http://yourfaucet.com/admin.php and config your faucet, to add short links, open libs/config.php
+6. http://yourfaucet.com/admin.php を開きフォーセットの設定を行います。short linksの追加は libs/config.php で行います
 
-# Author
+
+# 編集者
+
+- satetsu888
+
+# オリジナル作者
 
 - tungaqhd (Nguyễn Sỹ Tùng)
 
