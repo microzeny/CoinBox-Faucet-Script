@@ -16,4 +16,4 @@ $link[1] = "http://btc.ms/api/?api=86b6c147ce28028e5c7762afce1656f898279889&url=
 $link[2] = "http://btc.ms/api/?api=86b6c147ce28028e5c7762afce1656f898279889&url=http://coinbox.club/tung/link.php?k={key}&format=text";
 
 $link_default ='http://btc.ms/api/?api=86b6c147ce28028e5c7762afce1656f898279889&url=http://coinbox.club/tung/link.php?k={key}&format=text';
-?>   
+?>
