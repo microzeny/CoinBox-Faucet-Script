@@ -74,7 +74,7 @@ if (isset($_POST['address']) and isset($_POST['token'])) {
 					#normal claim
 					$faucethub_api = get_info(6);
 					$currency = $faucet['currency'];
-					$faucethub = new FaucetHub($faucethub_api, $currency);
+					$faucethub = new Microzeny($faucethub_api, $currency);
 					$result = $faucethub->send($address, $faucet['reward'], $ip);
 					if (isset($_COOKIE['ref']) && $address !== $_COOKIE['ref']) {
 						$ref = $mysqli->real_escape_string($_COOKIE['ref']);
@@ -108,7 +108,7 @@ if (isset($_GET['k'])) {
 		$address = $check['bitcoin_address'];
 		$mysqli->query("DELETE FROM link WHERE sec_key = '$key'");
 		$faucethub_api = get_info(6);
-		$faucethub = new FaucetHub($faucethub_api, $faucet['currency']);
+		$faucethub = new Microzeny($faucethub_api, $faucet['currency']);
 		$rew = get_info(11) + $faucet['reward'];
 		$result = $faucethub->send($address, $rew, $ip);
 		$new_balance = $result['balance'];
@@ -278,7 +278,7 @@ $_SESSION['token'] = get_token(70);
 						<div class="form-group">
 							<div class="input-group">
 								<div class="input-group-addon"><img src="template/img/wallet.png" width="40px"></div>
-								<input type="text" class="form-control" name="address" <?php if(isset($_COOKIE['address'])) {echo "value='" . $_COOKIE['address'] . "'";} else {echo 'placeholder="Must be linked to FaucetHub first"'; } ?> style="border-radius: 0px 20px 20px 0px;">
+								<input type="text" class="form-control" name="address" <?php if(isset($_COOKIE['address'])) {echo "value='" . $_COOKIE['address'] . "'";} else {echo 'placeholder="Must be create an account at microzeny first"'; } ?> style="border-radius: 0px 20px 20px 0px;">
 							</div>
 						</div>
 					</div> 

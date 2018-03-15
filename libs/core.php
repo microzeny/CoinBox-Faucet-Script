@@ -4,7 +4,7 @@ include 'config.php';
 include 'solvemedia.php';
 include 'sqn.php';
 include 'function.php';
-include 'faucethub.php';
+include 'microzeny.php';
 $ip = get_ip();
 $time = time();
 
