@@ -74,12 +74,12 @@ if (isset($_POST['address']) and isset($_POST['token'])) {
 					#normal claim
 					$faucethub_api = get_info(6);
 					$currency = $faucet['currency'];
-					$faucethub = new Microzeny($faucethub_api, $currency);
-					$result = $faucethub->send($address, $faucet['reward'], $ip);
+					$microzeny = new Microzeny($faucethub_api, $currency);
+					$result = $microzeny->send($address, $faucet['reward'], $ip);
 					if (isset($_COOKIE['ref']) && $address !== $_COOKIE['ref']) {
 						$ref = $mysqli->real_escape_string($_COOKIE['ref']);
 						$amt = floor($faucet['reward'] / 100 * $faucet['ref']);
-						$s = $faucethub->sendReferralEarnings($ref, $amt);
+						$s = $microzeny->sendReferralEarnings($ref, $amt);
 					}
 					if ($result['success'] == true) {
 						log_user($address, $ip);
@@ -108,15 +108,15 @@ if (isset($_GET['k'])) {
 		$address = $check['bitcoin_address'];
 		$mysqli->query("DELETE FROM link WHERE sec_key = '$key'");
 		$faucethub_api = get_info(6);
-		$faucethub = new Microzeny($faucethub_api, $faucet['currency']);
+		$microzeny = new Microzeny($faucethub_api, $faucet['currency']);
 		$rew = get_info(11) + $faucet['reward'];
-		$result = $faucethub->send($address, $rew, $ip);
+		$result = $microzeny->send($address, $rew, $ip);
 		$new_balance = $result['balance'];
 		$mysqli->query("UPDATE settings SET value = '$new_balance' WHERE id = '30'");
 		if (isset($_COOKIE['ref']) && $address !== $_COOKIE['ref']) {
 			$ref = $mysqli->real_escape_string($_COOKIE['ref']);
 			$amt = floor($rew / 100 * $faucet['ref']);
-			$s = $faucethub->sendReferralEarnings($ref, $amt);
+			$s = $microzeny->sendReferralEarnings($ref, $amt);
 		}
 		$alert = "<center><img style='max-width: 200px;' src='template/img/trophy.png'><br>{$result['html']}</center>";
 	} else {
@@ -227,14 +227,16 @@ $_SESSION['token'] = get_token(70);
 				<li class="nav-item active">
 					<a class="nav-link" href="index.php"><i class="fa fa-home" aria-hidden="true"></i> Home <span class="sr-only">(current)</span></a>
 				</li>
+                <!--
 				<li class="nav-item">
 					<a class="nav-link" href="#"><i class="fa fa-info" aria-hidden="true"></i> About us</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#"><i class="fa fa-envelope-open" aria-hidden="true"></i> Contact</a>
 				</li>
+                -->
 				<li class="nav-item">
-					<a class="nav-link" href="http://coinbox.club/threads/free-coinbox-faucet-script.5/"><i class="fa fa-bolt" aria-hidden="true"></i> CoinBox Script</a>
+					<a class="nav-link" href="https://github.com/microzeny/faucet-script"><i class="fa fa-bolt" aria-hidden="true"></i>Microzeny Faucet Script</a>
 				</li>
 			</ul>
 			<ul class="navbar-nav ml-auto">
@@ -255,7 +257,7 @@ $_SESSION['token'] = get_token(70);
 			</div>
 			<div class="col-sm-6 login">
 				<div class="alert alert-success text-center" style="margin-top: 10px;">
-					<p><i class="fa fa-trophy" aria-hidden="true"></i> Claim <?=$faucet['reward']?> <?=$currency_name?> every <?=floor($faucet['timer']/60)?> minutes .</p>
+					<p><i class="fa fa-trophy" aria-hidden="true"></i> <?=$faucet['reward']?> <?=$currency_name?> が <?=floor($faucet['timer']/60)?> 分ごとに受け取れます</p>
 				</div>
 				<center>
 					<?=$ad['above-form']?>
@@ -274,7 +276,7 @@ $_SESSION['token'] = get_token(70);
 				<form action="" method="post">
 					<input type="hidden" name="token" value="<?=$_SESSION['token']?>">
 					<div class="form-group">
-						<span class="badge badge-warning control-label">Your Bitcoin Address</span>
+						<span class="badge badge-warning control-label">microzeny アカウントID</span>
 						<div class="form-group">
 							<div class="input-group">
 								<div class="input-group-addon"><img src="template/img/wallet.png" width="40px"></div>
@@ -282,11 +284,14 @@ $_SESSION['token'] = get_token(70);
 							</div>
 						</div>
 					</div> 
+                    <p>
+                    microzenyのアカウントを持っていない場合は<a href="https://microzeny.com/login">こちら</a>で登録できます
+                    </p>
 					<center>
 						<?=$ad['bottom']?> 
 					</center>
 					<div class="form-group">
-						<span class="badge badge-danger control-label">Complete Captcha</span>
+						<span class="badge badge-danger control-label">Captcha</span>
 						<div class="form-group">
 							<div class="input-group">
 								<div class="input-group-addon"><img src="template/img/captcha.png" width="40px"></div>
@@ -315,15 +320,15 @@ $_SESSION['token'] = get_token(70);
 									<?=$ad['modal']?>
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-									<button type="submit" class="btn btn-primary" id="claim">Claim Your Coin</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+									<button type="submit" class="btn btn-primary" id="claim">BitZenyをもらう</button>
 								</div>
 							</div>
 						</div>
 					</div>
-					<code>Ref link: <?=$faucet['url']?>?r=Your_bitcoin_address</code>
+					<code>リファラルリンク: <?=$faucet['url']?>?r=microzenyのアカウントID</code>
 				</form>
-				<?php } else { $wait= 1; echo "<div class='alert alert-info'>You have to wait</div><br><div id='CountDownTimer' data-timer='" . checkip($ip) . "' style='width: 100%;'></div>"; } ?> 
+				<?php } else { $wait= 1; echo "<div class='alert alert-info'>しばらくお待ちください</div><br><div id='CountDownTimer' data-timer='" . checkip($ip) . "' style='width: 100%;'></div>"; } ?> 
 			</div>
 			<div class="col-sm-3 text-center" style="margin-top: 20px;">
 				<?=$ad['right']?>

@@ -121,8 +121,8 @@ class Microzeny
             return array(
                 'success' => true,
                 'message' => 'Payment sent to your address using faucet.microzeny.com',
-                'html' => '<div class="alert alert-success">' . htmlspecialchars($amount) . ' ZNY was sent to <a target="_blank" href="https://microzeny.com/balance' . rawurlencode($to) . '">your account at microzeny.com</a>.</div>',
-                'html_coin' => '<div class="alert alert-success">' . htmlspecialchars(rtrim(rtrim(sprintf("%.8f", $amount/100000000), '0'), '.')) . ' '.$this->currency.' was sent to <a target="_blank" href="https://microzeny.com/balance' . rawurlencode($to) . '">your account at microzeny.com</a>.</div>',
+                'html' => '<div class="alert alert-success">' . htmlspecialchars($amount) . ' ZNY が <a target="_blank" href="https://microzeny.com/balance' . '">あなたのmicrozenyのウォレット</a>へと送られました!</div>',
+                'html_coin' => '<div class="alert alert-success">' . htmlspecialchars(rtrim(rtrim(sprintf("%.8f", $amount/100000000), '0'), '.')) . ' '.$this->currency.' が <a target="_blank" href="https://microzeny.com/balance' . '">あなたのmicrozenyのウォレット</a>へと送られました！</div>',
                 'balance' => $r["balance"],
                 'balance_bitzeny' => $r["balance_bitzeny"],
                 'response' => json_encode($r)
@@ -151,7 +151,7 @@ class Microzeny
         return array(
             'success' => false,
             'message' => 'Unknown error.',
-            'html' => '<div class="alert alert-danger">Unknown error.</div>',
+            'html' => '<div class="alert alert-danger">不明なエラーです</div>',
             'response' => json_encode($r)
         );
     }
