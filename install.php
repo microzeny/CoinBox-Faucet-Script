@@ -5,7 +5,7 @@ $mysqli->query("CREATE TABLE IF NOT EXISTS `address_blocked` (
   `id` int(32) unsigned NOT NULL AUTO_INCREMENT,
   `address` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;"); 
+) DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;"); 
 
 $mysqli->query("CREATE TABLE IF NOT EXISTS `address_list` (
   `id` int(32) unsigned NOT NULL AUTO_INCREMENT,
@@ -14,26 +14,26 @@ $mysqli->query("CREATE TABLE IF NOT EXISTS `address_list` (
   `ref` varchar(75) NOT NULL,
   `last` int(32) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;"); 
+) DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;"); 
 
 $mysqli->query("CREATE TABLE IF NOT EXISTS `ip_blocked` (
   `id` int(32) unsigned NOT NULL AUTO_INCREMENT,
   `address` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;"); 
+) DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;"); 
 
 $mysqli->query("CREATE TABLE IF NOT EXISTS `ip_list` (
   `id` int(32) unsigned NOT NULL AUTO_INCREMENT,
   `ip_address` varchar(50) NOT NULL,
   `last` int(32) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;"); 
+) DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;"); 
 
 $mysqli->query("CREATE TABLE IF NOT EXISTS `link` (
   `bitcoin_address` varchar(75) NOT NULL,
   `sec_key` varchar(75) NOT NULL,
   `ip` varchar(30) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 ");
 
 $mysqli->query("CREATE TABLE IF NOT EXISTS `settings` (
@@ -41,19 +41,19 @@ $mysqli->query("CREATE TABLE IF NOT EXISTS `settings` (
   `name` varchar(50) NOT NULL,
   `value` varchar(400) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 ");
 
 $mysqli->query("INSERT INTO `settings` (`id`, `name`, `value`) VALUES
-(1, 'Name', 'microzeny faucet sample script'),
+(1, 'Name', 'microzeny faucet サンプル'),
 (2, 'Description', 'Free BitZeny by microzeny'),
 (3, 'Url', 'http://example.com/'),
-(4, 'Theme', 'other'),
+(4, 'Theme', 'default'),
 (5, 'Currency', 'ZNY'),
-(6, 'FaucetHub Api', ''),
+(6, 'Microzeny Faucet api', ''),
 (7, 'Timer', '60'),
-(8, 'Reward', '100'),
-(9, 'Referral Commision', '10'),
+(8, 'Reward', '0.01'),
+(9, 'Referral Commision', '5'),
 (10, 'Short Link Status', 'off'),
 (11, 'Short Link Reward', '10'),
 (12, 'Force Short Link', 'off'),
@@ -77,4 +77,4 @@ $mysqli->query("INSERT INTO `settings` (`id`, `name`, `value`) VALUES
 (30, 'Faucet Balance', 'Make a claim to update it');");
 ?>
 <center><h1>Remove this file after running it successful !</h1>
-<h2>For more instructions, go here: <a href="http://coinbox.club/threads/free-coinbox-faucet-script.5/">CoinBox Faucet Script</a></h2></center>
+<h2>For more instructions, go here: <a href="https://github.com/microzeny/faucet-script">Microzeny Faucet Script</a></h2></center>
