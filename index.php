@@ -72,9 +72,9 @@ if (isset($_POST['address']) and isset($_POST['token'])) {
 				} else {
 
 					#normal claim
-					$faucethub_api = get_info(6);
+					$microzeny_api = get_info(6);
 					$currency = $faucet['currency'];
-					$microzeny = new Microzeny($faucethub_api, $currency);
+					$microzeny = new Microzeny($microzeny_api, $currency);
 					$result = $microzeny->send($address, $faucet['reward'], $ip);
 					if (isset($_COOKIE['ref']) && $address !== $_COOKIE['ref']) {
 						$ref = $mysqli->real_escape_string($_COOKIE['ref']);
@@ -107,8 +107,8 @@ if (isset($_GET['k'])) {
 		$check = $check->fetch_assoc();
 		$address = $check['bitcoin_address'];
 		$mysqli->query("DELETE FROM link WHERE sec_key = '$key'");
-		$faucethub_api = get_info(6);
-		$microzeny = new Microzeny($faucethub_api, $faucet['currency']);
+		$microzeny_api = get_info(6);
+		$microzeny = new Microzeny($microzeny_api, $faucet['currency']);
 		$rew = get_info(11) + $faucet['reward'];
 		$result = $microzeny->send($address, $rew, $ip);
 		$new_balance = $result['balance'];
