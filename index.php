@@ -134,15 +134,15 @@ $_SESSION['token'] = get_token(70);
 	<title><?=$faucet['name']?> - <?=$faucet['description']?></title> 
 	<link rel="shortcut icon" href="template//img/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="template/img/favicon.ico" type="template/image/x-icon">
-	<link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed" rel="stylesheet">
+	<!--<link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed" rel="stylesheet">-->
 	<link rel="stylesheet" type="text/css" href="template/css/<?=$faucet['theme']?>.css"> 
 	<link rel="stylesheet" href="template/css/countdown.css"> 
 	<style type="text/css"> 
 	body {  
-		font-family: 'Saira Extra Condensed', sans-serif;
+		;font-family: 'Saira Extra Condensed', sans-serif;
 		font-weight:400;
 		font-size:0.875em;
-		letter-spacing:0.063em;
+		letter-spacing:0.043em;
 	}
 	img, iframe {
 		max-width: 100%;
@@ -284,9 +284,10 @@ $_SESSION['token'] = get_token(70);
 							</div>
 						</div>
 					</div> 
-                    <p>
-                    microzenyのアカウントを持っていない場合は<a href="https://microzeny.com/login">こちら</a>で登録できます
-                    </p>
+                    <ul>
+                        <li>先頭の@は省略してください</li>
+                        <li>microzenyのアカウントをまだ持っていない場合は<a href="https://microzeny.com/login">こちら</a>から登録できます</li>
+                    </ul>
 					<center>
 						<?=$ad['bottom']?> 
 					</center>
