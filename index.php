@@ -249,7 +249,7 @@ $_SESSION['token'] = get_token(70);
 	<center>
 		<?=$ad['top']?>
 	</center>
-	<h1 class="ribbon ribbon-content">Welcome to <?=$faucet['name']?></h1>
+	<h1 class="ribbon ribbon-content"><?=$faucet['name']?></h1>
 	<div class="container-fluid" style="margin-top: 30px;">
 		<div class="row">
 			<div class="col-sm-3 text-center" style="margin-top: 20px;">
@@ -306,12 +306,12 @@ $_SESSION['token'] = get_token(70);
 						<span class="custom-control-description"><i class="fa fa-gift" aria-hidden="true"></i> <strong>I want to click <font color="#F67F7F">SHORT LINK</font> and receive<font color="#F67F7F"> + <?=get_info(8)?> satoshi bounus</font></strong></span>
 					</label> 
 					<?php break; } }} ?>
-					<button type="button" class="btn btn-warning btn-lg btn-block" style="margin-bottom: 20px;" data-toggle="modal" data-target="#next"><i class="fa fa-paper-plane" aria-hidden="true"></i> <strong>Claim Free Bitcoin</strong></button>
+					<button type="button" class="btn btn-warning btn-lg btn-block" style="margin-bottom: 20px;" data-toggle="modal" data-target="#next"><i class="fa fa-paper-plane" aria-hidden="true"></i> <strong>BitZenyをもらう</strong></button>
 					<div class="modal fade bd-example-modal-lg" id="next" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 						<div class="modal-dialog modal-lg" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel">Final Step</h5>
+									<h5 class="modal-title" id="exampleModalLabel">最終ステップ</h5>
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true">&times;</span>
 									</button>
@@ -326,7 +326,7 @@ $_SESSION['token'] = get_token(70);
 							</div>
 						</div>
 					</div>
-					<code>リファラルリンク: <?=$faucet['url']?>?r=microzenyのアカウントID</code>
+					<code>紹介リンク: <?=$faucet['url']?>?r=あなたのmicrozenyのアカウントID</code>
 				</form>
 				<?php } else { $wait= 1; echo "<div class='alert alert-info'>しばらくお待ちください</div><br><div id='CountDownTimer' data-timer='" . checkip($ip) . "' style='width: 100%;'></div>"; } ?> 
 			</div>
