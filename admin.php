@@ -95,7 +95,7 @@ if (isset($_SESSION['admin'])) {
 </head>
 <body>
 	<div class="container">
-		<h1 class="text-center">CoinBox Faucet Script</h1>
+		<h1 class="text-center">Microzeny Faucet Script</h1>
 		<h3 class="text-center">Admin Panel</h3>
 		<?php if (isset($alert)) { ?>
 		<center>
@@ -171,14 +171,14 @@ if (isset($_SESSION['admin'])) {
 					</div>
 					<span class="badge badge-info">Reward System</span>
 					<div class="form-group">
-						<label for="api">FaucetHub Api</label>
+						<label for="api">Microzeny Faucet Api Key</label>
 						<input type="password" name="api" class="form-control" id="api" aria-describedby="apihelp" value="lollollollollollollollollollol">
-						<small id="apihelp" class="form-text text-muted">Your FaucetHub Api</small>
+						<small id="apihelp" class="form-text text-muted">Your Microzeny Faucet Api Key</small>
 					</div>
 					<div class="form-group">
 						<label for="currency">Currency</label>
 						<input type="text" name="currency" class="form-control" id="currency" aria-describedby="currencyhelp" value="<?=get_info(5)?>">
-						<small id="currencyhelp" class="form-text text-muted">Your Faucet's Currency (BTC | BCH | DOGE | ETH | BLK | ... you can use any currency supported by FaucetHub)</small>
+						<small id="currencyhelp" class="form-text text-muted">Your Faucet's Currency (ZNY is supported by Micozeny)</small>
 					</div>
 					<div class="form-group">
 						<label for="currency">Timer</label>
