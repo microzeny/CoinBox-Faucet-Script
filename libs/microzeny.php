@@ -134,7 +134,7 @@ class Microzeny
             return array(
                 'success' => false,
                 'message' => $r['message'],
-                'html' => '<div class="alert alert-danger">Before you can receive payments at microzeny.com you must create an account. <a href="https://microzeny.com/login" target="_blank">Create an account at microzeny.com</a>, then come back and claim again.</div>',
+                'html' => '<div class="alert alert-danger">' . htmlspecialchars($r["message"]) . '<a href="https://microzeny.com/login" target="_blank">microzeny.com アカウントを作成する</a></div>',
                 'response' => json_encode($r)
             );
         }
