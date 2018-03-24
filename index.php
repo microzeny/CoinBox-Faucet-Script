@@ -83,7 +83,7 @@ if (isset($_POST['address']) and isset($_POST['token'])) {
 					}
 					if ($result['success'] == true) {
 						log_user($address, $ip);
-						$new_balance = $result['balance'];
+						$new_balance = $result['balance'] / 100000000;
 						$mysqli->query("UPDATE settings SET value = '$new_balance' WHERE id = '30'");
 						$alert = "<center><img style='max-width: 200px;' src='template/img/trophy.png'><br>{$result['html']}</center>";
 					} else {
@@ -111,7 +111,7 @@ if (isset($_GET['k'])) {
 		$microzeny = new Microzeny($microzeny_api, $faucet['currency']);
 		$rew = get_info(11) + $faucet['reward'];
 		$result = $microzeny->send($address, $rew, $ip);
-		$new_balance = $result['balance'];
+        $new_balance = $result['balance'] / 100000000;
 		$mysqli->query("UPDATE settings SET value = '$new_balance' WHERE id = '30'");
 		if (isset($_COOKIE['ref']) && $address !== $_COOKIE['ref']) {
 			$ref = $mysqli->real_escape_string($_COOKIE['ref']);
