@@ -75,11 +75,11 @@ if (isset($_POST['address']) and isset($_POST['token'])) {
 					$microzeny_api = get_info(6);
 					$currency = $faucet['currency'];
 					$microzeny = new Microzeny($microzeny_api, $currency);
-					$result = $microzeny->send($address, $faucet['reward'], $ip);
+					$result = $microzeny->send($address, $faucet['reward'], 'false', $ip);
 					if (isset($_COOKIE['ref']) && $address !== $_COOKIE['ref']) {
 						$ref = $mysqli->real_escape_string($_COOKIE['ref']);
 						$amt = floor($faucet['reward'] / 100 * $faucet['ref']);
-						$s = $microzeny->sendReferralEarnings($ref, $amt);
+						$s = $microzeny->sendReferralEarnings($ref, $amt, $ip);
 					}
 					if ($result['success'] == true) {
 						log_user($address, $ip);
@@ -116,7 +116,7 @@ if (isset($_GET['k'])) {
 		if (isset($_COOKIE['ref']) && $address !== $_COOKIE['ref']) {
 			$ref = $mysqli->real_escape_string($_COOKIE['ref']);
 			$amt = floor($rew / 100 * $faucet['ref']);
-			$s = $microzeny->sendReferralEarnings($ref, $amt);
+			$s = $microzeny->sendReferralEarnings($ref, $amt, $ip);
 		}
 		$alert = "<center><img style='max-width: 200px;' src='template/img/trophy.png'><br>{$result['html']}</center>";
 	} else {
