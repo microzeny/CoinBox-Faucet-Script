@@ -90,7 +90,7 @@ if (isset($_POST['address']) and isset($_POST['token'])) {
 						$mysqli->query("UPDATE settings SET value = '$new_balance' WHERE id = '30'");
 						$alert = "<center><img style='max-width: 200px;' src='template/img/trophy.png'><br>{$result['html']}</center>";
 					} else {
-						$alert = "<center><img style='max-width: 200px;' src='template/img/trophy.png'><br><div class='alert alert-danger'>Failed to send your reward :(</div></center>"; 
+						$alert = "<center><img style='max-width: 200px;' src='template/img/trophy.png'><br><div class='alert alert-danger'>{$result['html']}</div></center>";
 					}
 				}
 			}
