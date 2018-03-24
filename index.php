@@ -10,6 +10,9 @@ if (isset($_POST['address']) and isset($_POST['token'])) {
 	
     # clean user's input
 	$address = $mysqli->real_escape_string($_POST['address']);
+    # omit it if start with @
+    preg_match('/@?(\S+)/', $address, $matches);
+    $address = $matches[1];
 	if (!isset($_COOKIE['address'])) {
 		setcookie('address', $address, time()+1000000);
 	} 
@@ -285,7 +288,6 @@ $_SESSION['token'] = get_token(70);
 						</div>
 					</div> 
                     <ul>
-                        <li>先頭の@は省略してください</li>
                         <li>microzenyのアカウントをまだ持っていない場合は<a href="https://microzeny.com/login">こちら</a>から登録できます</li>
                     </ul>
 					<center>
