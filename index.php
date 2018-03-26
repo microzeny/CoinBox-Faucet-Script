@@ -283,7 +283,7 @@ $_SESSION['token'] = get_token(70);
 						<div class="form-group">
 							<div class="input-group">
 								<div class="input-group-addon"><img src="template/img/wallet.png" width="40px"></div>
-								<input type="text" class="form-control" name="address" <?php if(isset($_COOKIE['address'])) {echo "value='" . $_COOKIE['address'] . "'";} else {echo 'placeholder="Must be create an account at microzeny first"'; } ?> style="border-radius: 0px 20px 20px 0px;">
+								<input type="text" class="form-control" name="address" <?php if(isset($_COOKIE['address'])) {echo "value='" . $_COOKIE['address'] . "'";} else {echo 'placeholder="Must be create an account at microzeny first"'; } ?> style="border-radius: 0px 20px 20px 0px;" required>
 							</div>
 						</div>
 					</div> 
