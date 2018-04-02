@@ -6,22 +6,11 @@
 
 - PHP >= 5.6 (tested on 5.6)
 
-- MySQLI
+- MySQL
 
-# インストール方法
+# Faucetの設置方法
 
-1. zip fileをダウンロードします
-
-2. サーバーにアップロードします
-
-3. zipを解凍します
-
-4. libs/config.php を開き、データベースの情報、管理者アカウント名、パスワードを設定します(デフォルトはadmin/adminになっています）
-
-5. http://yourfaucet.com/install.php を開きます
-
-6. http://yourfaucet.com/admin.php を開きフォーセットの設定を行います。short linksの追加は libs/config.php で行います
-
+https://github.com/microzeny/faucet-script/wiki/How-to-Start-BitZeny-faucet
 
 # 編集者
 
